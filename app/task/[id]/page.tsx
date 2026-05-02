@@ -1,5 +1,3 @@
-interface Props {
-  params: Promise<number>;
+export default function TaskPage() {
+  return <div className="flex flex-col items-center">Task page goes here!</div>;
 }
-
-export default function TaskPage({ params }: Props) {}

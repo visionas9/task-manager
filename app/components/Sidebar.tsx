@@ -11,12 +11,6 @@ export default function Sidebar() {
 
   return (
     <>
-      <button
-        className="flex flex-col items-start"
-        onClick={() => handleToggle()}
-      >
-        toggle
-      </button>
       <aside
         className={`flex flex-col h-screen ${open ? "w-[20%]" : "hidden"}`}
       >
@@ -26,6 +20,12 @@ export default function Sidebar() {
           ))}
         </ul>
       </aside>
+      <button
+        className="flex flex-col items-start"
+        onClick={() => handleToggle()}
+      >
+        toggle
+      </button>
     </>
   );
 }
