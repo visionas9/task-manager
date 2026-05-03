@@ -1,13 +1,10 @@
-import { harcodedSidebar } from "../hardcodeddata";
+import { useState } from "react";
 
 export default function TaskCard() {
-  return (
-    <>
-      {harcodedSidebar.map((i: any) => (
-        <div key={i.id}>
-          <p>{i.duty}</p>
-        </div>
-      ))}
-    </>
-  );
+  const [id, setId] = useState("");
+  const [duties, setDuties] = useState("");
+  const [isCompleted, setIsCompleted] = useState(false);
+  const [notes, setNotes] = useState("");
+
+  return <main></main>;
 }
