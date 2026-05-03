@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 
 export default function TaskCard() {
@@ -13,26 +14,29 @@ export default function TaskCard() {
     setDutyInput("");
   };
 
+  console.log(duties);
+
   return (
     <main>
-      <div>
-        <label>
-          What's needs to be done?
+      <div className="flex flex-col items-center">
+        <label>What's needs to be done?</label>
+        <div className="flex items-center justify-between">
           <input
             type="text"
             placeholder="Presentation e.g."
             className="w-[300px] py-2 shadow-sm"
-            value={duties}
+            value={dutyInput}
             onChange={(e) => setDutyInput(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && handleAddDuty()}
           />
-        </label>
-        <button
-          className="bg-emerald px-4 py-2 rounded-xl hover:cursor-pointer shrink-0"
-          onClick={handleAddDuty}
-        >
-          +Add
-        </button>
+
+          <button
+            className="bg-emerald px-4 py-2 rounded-xl hover:cursor-pointer shrink-0"
+            onClick={handleAddDuty}
+          >
+            +Add
+          </button>
+        </div>
       </div>
     </main>
   );
