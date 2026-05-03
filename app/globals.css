@@ -1,8 +1,10 @@
 @import "tailwindcss";
 
-@theme  {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@theme {
+  --color-slate: #1e293b;
+  --color-sky: #38bdf8;
+  --color-emerald: #34d399;
+  --color-amber: #fbbf24;
+  --color-rose: #fb7185;
+  --color-light: #f1f5f9;
 }

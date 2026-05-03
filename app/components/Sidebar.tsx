@@ -12,7 +12,7 @@ export default function Sidebar() {
   return (
     <>
       <aside
-        className={`flex flex-col h-screen ${open ? "w-[20%]" : "hidden"}`}
+        className={`flex flex-col h-screen bg-emerald ${open ? "w-[20%]" : "hidden"}`}
       >
         <ul>
           {harcodedSidebar.map((i) => (

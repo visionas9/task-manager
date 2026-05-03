@@ -1,3 +1,10 @@
 export default function TaskPage() {
-  return <div className="flex flex-col items-center">Task page goes here!</div>;
+  return (
+    <main
+      className="flex flex-col items-center
+  bg-slate text-light"
+    >
+      Task page goes here!
+    </main>
+  );
 }
