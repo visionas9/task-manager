@@ -1,20 +1,51 @@
 "use client";
 import { useState } from "react";
-import { formattedDate } from "../lib/utils";
+
+type Duty = {
+  id: string;
+  text: string;
+  isCompleted: boolean;
+};
 
 export default function TaskCard() {
-  const [id, setId] = useState("");
-  const [duties, setDuties] = useState<string[]>([]);
+  const [duties, setDuties] = useState<Duty[]>([]);
   const [dutyInput, setDutyInput] = useState("");
-  const [isCompleted, setIsCompleted] = useState(false);
   const [notes, setNotes] = useState<string[]>([]);
   const [noteInput, setNoteInput] = useState("");
 
   const handleAddDuty = () => {
     if (!dutyInput.trim()) return;
-    setDuties([...duties, dutyInput.trim()]);
+    setDuties([
+      ...duties,
+      {
+        id: crypto.randomUUID(),
+        text: dutyInput.trim(),
+        isCompleted: false,
+      },
+    ]);
     setDutyInput("");
   };
+
+  const handleToggleDuty = (id: any) => {
+    setDuties(
+      duties.map((d) =>
+        d.id === id ? { ...d, isCompleted: !d.isCompleted } : d,
+      ),
+    );
+  };
+
+  const renderDuties = duties.map((duty) => (
+    <div key={duty.id}>
+      <input
+        type="checkbox"
+        checked={duty.isCompleted}
+        onChange={() => handleToggleDuty(duty.id)}
+      />
+      <span className={duty.isCompleted ? "line-through" : ""}>
+        {duty.text}
+      </span>
+    </div>
+  ));
 
   const handleAddNote = () => {
     if (!noteInput.trim()) return;
@@ -61,11 +92,14 @@ export default function TaskCard() {
           />
           <button
             className="m-auto bg-emerald px-4 py-2 rounded-xl hover:cursor-pointer shrink-0"
-            onClick={handleAddDuty}
+            onClick={handleAddNote}
           >
             Save to notes
           </button>
         </div>
+
+        {/** Render Duties **/}
+        <div>{renderDuties}</div>
       </div>
     </main>
   );
