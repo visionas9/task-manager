@@ -99,7 +99,14 @@ export default function TaskCard() {
         </div>
 
         {/** Render Duties **/}
-        <div>{renderDuties}</div>
+
+        <div
+          className="flex flex-col border border-gray-300 rounded-md p-2 w-[300px] 
+        gap-2 mt-5"
+        >
+          <p>Active tasks:</p>
+          {renderDuties}
+        </div>
       </div>
     </main>
   );
