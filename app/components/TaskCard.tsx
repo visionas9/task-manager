@@ -5,8 +5,7 @@ import { type Duty } from "../lib/types";
 export default function TaskCard() {
   const [duties, setDuties] = useState<Duty[]>([]);
   const [dutyInput, setDutyInput] = useState("");
-  const [notes, setNotes] = useState<string[]>([]);
-  const [noteInput, setNoteInput] = useState("");
+  const [note, setNote] = useState("");
 
   const handleAddDuty = () => {
     if (!dutyInput.trim()) return;
@@ -27,12 +26,6 @@ export default function TaskCard() {
 
   const deleteDuty = (id: string) => {
     setDuties((prev) => prev.filter((p) => p.id !== id));
-  };
-
-  const handleAddNote = () => {
-    if (!noteInput.trim()) return;
-    setNotes([...notes, noteInput.trim()]);
-    setNoteInput("");
   };
 
   return (
@@ -98,13 +91,10 @@ export default function TaskCard() {
           placeholder="I shouldn't use phone before sessions to keep my focus sharp."
           className="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent resize-none"
           rows={4}
-          value={noteInput}
-          onChange={(e) => setNoteInput(e.target.value)}
+          value={note}
+          onChange={(e) => setNote(e.target.value)}
         />
-        <button
-          className="self-end bg-emerald-500 text-white px-4 py-2 rounded-md hover:bg-emerald-600 cursor-pointer transition"
-          onClick={handleAddNote}
-        >
+        <button className="self-end bg-emerald-500 text-white px-4 py-2 rounded-md hover:bg-emerald-600 cursor-pointer transition">
           Save note
         </button>
       </div>
