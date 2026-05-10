@@ -1,11 +1,6 @@
 "use client";
 import { useState } from "react";
-
-type Duty = {
-  id: string;
-  text: string;
-  isCompleted: boolean;
-};
+import { type Duty } from "../lib/types";
 
 export default function TaskCard() {
   const [duties, setDuties] = useState<Duty[]>([]);
