@@ -10,3 +10,8 @@ export interface Task {
   note: string;
   createdAt: string;
 }
+
+type Day = {
+  id: string; // "10-05-2026"
+  tasks: Task[];
+};
