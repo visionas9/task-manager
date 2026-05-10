@@ -26,7 +26,7 @@ export default function TaskCard() {
     setDutyInput("");
   };
 
-  const handleToggleDuty = (id: any) => {
+  const handleToggleDuty = (id: string) => {
     setDuties(
       duties.map((d) =>
         d.id === id ? { ...d, isCompleted: !d.isCompleted } : d,
@@ -34,8 +34,12 @@ export default function TaskCard() {
     );
   };
 
+  const deleteDuty = (id: string) => {
+    setDuties((prev) => prev.filter((p) => p.id !== id));
+  };
+
   const renderDuties = duties.map((duty) => (
-    <div key={duty.id}>
+    <div key={duty.id} className="flex">
       <input
         type="checkbox"
         checked={duty.isCompleted}
@@ -44,6 +48,9 @@ export default function TaskCard() {
       <span className={duty.isCompleted ? "line-through" : ""}>
         {duty.text}
       </span>
+      <button onClick={() => deleteDuty} className="flex justify-end">
+        x
+      </button>
     </div>
   ));
 
