@@ -11,7 +11,7 @@ export interface Task {
   createdAt: string;
 }
 
-type Day = {
+export interface Day {
   id: string; // "10-05-2026"
   tasks: Task[];
-};
+}
